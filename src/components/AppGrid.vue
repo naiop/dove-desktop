@@ -58,7 +58,7 @@
         ghost-class="ghost"
         :move="checkMove"
       >
-        <template v-for="(item, index) in defaultArray">
+        <template v-for="(item) in defaultArray">
           <div
             class="app-item"
             :class="item.size"
@@ -132,510 +132,510 @@
     <!-- <add msg="新增网站" :open="openAddDialog" item="currentAppGridList" /> -->
   </div>
 </template>
-     
+
 <script>
-import FlipClock from "kuan-vue-flip-clock";
-import draggable from "vuedraggable"; //引入vuedraggable
-import add from "./Add";
+import FlipClock from 'kuan-vue-flip-clock'
+import draggable from 'vuedraggable' // 引入vuedraggable
+import add from './Add'
 export default {
   components: { draggable, FlipClock, add },
   filters: {
     // color 过滤
-    ColorFilter(status) {
-      var color = "#" + Math.random().toString(16).slice(-6);
-      var style = "background-color:" + color;
-      return style;
-    },
+    ColorFilter (status) {
+      var color = '#' + Math.random().toString(16).slice(-6)
+      var style = 'background-color:' + color
+      return style
+    }
   },
-  data() {
+  data () {
     return {
       openAddDialog: false,
       fullscreen: false,
       rightMenu: false,
-      left: "",
-      top: "",
+      left: '',
+      top: '',
       enabled: true,
       currentAppGridList: [],
       defaultArray: [
         {
-          id: "iM3NZ",
-          type: "box",
-          size: "icon-4X2",
-          title: "文章收纳盒",
-          url: "undefined",
-          icon: "",
-          create_time: "2022-09-13 20:10:12",
-          update_time: "2022-09-13 20:10:12",
+          id: 'iM3NZ',
+          type: 'box',
+          size: 'icon-4X2',
+          title: '文章收纳盒',
+          url: 'undefined',
+          icon: '',
+          create_time: '2022-09-13 20:10:12',
+          update_time: '2022-09-13 20:10:12',
           original_id: 1,
           position: 0,
-          bg_color: "#154280",
+          bg_color: '#154280',
           status: 0,
           desc:
-            "临时使用的多个网址，添加进收纳盒，方便快速使用，避免因打开网址过多而丢失",
-          icon_type: "bg_color",
+            '临时使用的多个网址，添加进收纳盒，方便快速使用，避免因打开网址过多而丢失',
+          icon_type: 'bg_color'
         },
         {
-          id: "G3H4D",
-          type: "folder",
-          size: "icon-2X2",
-          title: "文件夹",
+          id: 'G3H4D',
+          type: 'folder',
+          size: 'icon-2X2',
+          title: '文件夹',
           url: null,
           icon: null,
-          create_time: "2022-10-10 12:53:14",
-          update_time: "2022-10-10 12:53:14",
+          create_time: '2022-10-10 12:53:14',
+          update_time: '2022-10-10 12:53:14',
           original_id: 16,
           position: 2,
-          bg_color: "#FBBF24",
+          bg_color: '#FBBF24',
           status: 1,
-          desc: "常用网站可以利用文件夹进行分类管理",
-          icon_type: "bg_color",
-          children: [],
+          desc: '常用网站可以利用文件夹进行分类管理',
+          icon_type: 'bg_color',
+          children: []
         },
         {
-          id: "5VvfU",
-          type: "screensaver",
-          size: "icon-2X1",
-          title: "屏保",
+          id: '5VvfU',
+          type: 'screensaver',
+          size: 'icon-2X1',
+          title: '屏保',
           url: null,
-          icon: "",
-          create_time: "2022-10-10 12:53:28",
-          update_time: "2022-10-10 12:53:28",
+          icon: '',
+          create_time: '2022-10-10 12:53:28',
+          update_time: '2022-10-10 12:53:28',
           original_id: 6,
           position: 3,
-          bg_color: "#15803D",
+          bg_color: '#15803D',
           status: 0,
           desc:
-            "离开电脑不想让被人看到你的电脑屏幕，一键打开个性化屏保小应用，支持自定义文字内容，自定义背景，让你的屏幕隐私安全且高大上",
-          icon_type: "bg_color",
+            '离开电脑不想让被人看到你的电脑屏幕，一键打开个性化屏保小应用，支持自定义文字内容，自定义背景，让你的屏幕隐私安全且高大上',
+          icon_type: 'bg_color'
         },
         {
-          id: "CneSJ",
-          type: "sticker",
-          size: "icon-1X1",
-          title: "贴纸",
+          id: 'CneSJ',
+          type: 'sticker',
+          size: 'icon-1X1',
+          title: '贴纸',
           url: null,
-          icon: "/app/1665377471432.svg",
-          create_time: "2022-10-10 17:59:01",
-          update_time: "2022-10-10 17:59:01",
+          icon: '/app/1665377471432.svg',
+          create_time: '2022-10-10 17:59:01',
+          update_time: '2022-10-10 17:59:01',
           original_id: 2,
           position: 4,
           bg_color: null,
           status: 0,
           desc:
-            "有想要做的事情，担心忘记，随时打开便签，快速记录，可以拖到页面任何位置，方便提醒，再也不用花钱买纸质便签啦。",
-          icon_type: "icon",
+            '有想要做的事情，担心忘记，随时打开便签，快速记录，可以拖到页面任何位置，方便提醒，再也不用花钱买纸质便签啦。',
+          icon_type: 'icon'
         },
         {
-          id: "TAK88",
-          type: "set",
-          size: "icon-1X1",
-          title: "设置",
+          id: 'TAK88',
+          type: 'set',
+          size: 'icon-1X1',
+          title: '设置',
           url: null,
-          icon: "/app/1665377497026.svg",
-          create_time: "2022-10-10 17:59:07",
-          update_time: "2022-10-10 17:59:07",
+          icon: '/app/1665377497026.svg',
+          create_time: '2022-10-10 17:59:07',
+          update_time: '2022-10-10 17:59:07',
           original_id: 5,
           position: 5,
           bg_color: null,
           status: 0,
-          desc: "系统设置",
-          icon_type: "icon",
+          desc: '系统设置',
+          icon_type: 'icon'
         },
         {
-          id: "v0Xf8",
-          type: "market",
-          size: "icon-1X1",
-          title: "应用市场",
+          id: 'v0Xf8',
+          type: 'market',
+          size: 'icon-1X1',
+          title: '应用市场',
           url: null,
-          icon: "/app/1665377514117.svg",
-          create_time: "2022-10-10 17:59:07",
-          update_time: "2022-10-10 17:59:07",
+          icon: '/app/1665377514117.svg',
+          create_time: '2022-10-10 17:59:07',
+          update_time: '2022-10-10 17:59:07',
           original_id: 7,
           position: 6,
           bg_color: null,
           status: 0,
           desc:
-            "各种使用的小工具，各种常用的网站,都在这里，有了它就再也不愁找不到想要的网站，想要的工具，大大提高工作效率，更主要的是，可以一键添加到桌面。",
-          icon_type: "icon",
+            '各种使用的小工具，各种常用的网站,都在这里，有了它就再也不愁找不到想要的网站，想要的工具，大大提高工作效率，更主要的是，可以一键添加到桌面。',
+          icon_type: 'icon'
         },
         {
-          id: "AH8tx",
-          type: "bookmark",
-          size: "icon-1X1",
-          title: "书签管理",
+          id: 'AH8tx',
+          type: 'bookmark',
+          size: 'icon-1X1',
+          title: '书签管理',
           url: null,
-          icon: "/app/1665377553008.svg",
-          create_time: "2022-10-10 17:59:07",
-          update_time: "2022-10-10 17:59:07",
+          icon: '/app/1665377553008.svg',
+          create_time: '2022-10-10 17:59:07',
+          update_time: '2022-10-10 17:59:07',
           original_id: 9,
           position: 7,
           bg_color: null,
           status: 1,
           desc:
-            "书签管理应用可以快速导入，浏览器书签并对其进行重新分类整理，统一在桌面显示，方便快速查找使用，可以大大提高使用效率。",
-          icon_type: "icon",
+            '书签管理应用可以快速导入，浏览器书签并对其进行重新分类整理，统一在桌面显示，方便快速查找使用，可以大大提高使用效率。',
+          icon_type: 'icon'
         },
         {
-          id: "wLxdI",
-          type: "add",
-          size: "icon-1X1",
-          title: "新增网站",
+          id: 'wLxdI',
+          type: 'add',
+          size: 'icon-1X1',
+          title: '新增网站',
           url: null,
-          icon: "/app/1665377570145.svg",
-          create_time: "2022-10-10 17:59:07",
-          update_time: "2022-10-10 17:59:07",
+          icon: '/app/1665377570145.svg',
+          create_time: '2022-10-10 17:59:07',
+          update_time: '2022-10-10 17:59:07',
           original_id: 17,
           position: 8,
           bg_color: null,
           status: 0,
-          desc: "添加自己想要的网站，随时记录",
-          icon_type: "icon",
+          desc: '添加自己想要的网站，随时记录',
+          icon_type: 'icon'
         },
         {
-          id: "LiW55",
-          type: "icon",
-          size: "icon-1X1",
-          title: "百度",
-          url: "https://www.baidu.com/",
-          icon: "/website/1665381372629.svg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'LiW55',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '百度',
+          url: 'https://www.baidu.com/',
+          icon: '/website/1665381372629.svg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 1,
           position: 9,
           bg_color: null,
           status: null,
-          desc: "全球最大的中文搜索网站",
-          icon_type: "logo",
+          desc: '全球最大的中文搜索网站',
+          icon_type: 'logo'
         },
         {
-          id: "BDSnC",
-          type: "icon",
-          size: "icon-1X1",
-          title: "语雀",
-          url: "https://www.yuque.com",
-          icon: "/website/1663064585280.png",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'BDSnC',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '语雀',
+          url: 'https://www.yuque.com',
+          icon: '/website/1663064585280.png',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 6,
           position: 10,
           bg_color: null,
           status: null,
           desc:
-            "十万阿里人都在用的笔记与文档知识库，面向企业、组织或个人，提供全新的体系化知识管理，打造轻松流畅的工作协同。",
-          icon_type: "logo",
+            '十万阿里人都在用的笔记与文档知识库，面向企业、组织或个人，提供全新的体系化知识管理，打造轻松流畅的工作协同。',
+          icon_type: 'logo'
         },
         {
-          id: "jrSXn",
-          type: "icon",
-          size: "icon-1X1",
-          title: "Vue.js",
-          url: "https://cn.vuejs.org",
-          icon: "/website/1663064387372.png",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'jrSXn',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: 'Vue.js',
+          url: 'https://cn.vuejs.org',
+          icon: '/website/1663064387372.png',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 10,
           position: 11,
           bg_color: null,
           status: null,
-          desc: "渐进式 JavaScript 框架 | Vue.js",
-          icon_type: "logo",
+          desc: '渐进式 JavaScript 框架 | Vue.js',
+          icon_type: 'logo'
         },
         {
-          id: "Z8qnL",
-          type: "icon",
-          size: "icon-1X1",
-          title: "京东",
-          url: "https://www.jd.com",
-          icon: "/website/1663054896745.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'Z8qnL',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '京东',
+          url: 'https://www.jd.com',
+          icon: '/website/1663054896745.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 29,
           position: 12,
           bg_color: null,
           status: null,
           desc:
-            "专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。",
-          icon_type: "logo",
+            '专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。',
+          icon_type: 'logo'
         },
         {
-          id: "T9Kso",
-          type: "icon",
-          size: "icon-1X1",
-          title: "腾讯视频",
-          url: "https://v.qq.com/",
-          icon: "/website/1663054921187.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'T9Kso',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '腾讯视频',
+          url: 'https://v.qq.com/',
+          icon: '/website/1663054921187.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 31,
           position: 13,
           bg_color: null,
           status: null,
           desc:
-            "致力于打造中国领先的在线视频媒体平台，以丰富的内容、极致的观看体验、便捷的登录方式、24小时多平台无缝应用体验以及快捷分享的产品特性，主要满足用户在线观看视频的需求。",
-          icon_type: "logo",
+            '致力于打造中国领先的在线视频媒体平台，以丰富的内容、极致的观看体验、便捷的登录方式、24小时多平台无缝应用体验以及快捷分享的产品特性，主要满足用户在线观看视频的需求。',
+          icon_type: 'logo'
         },
         {
-          id: "iIYa7",
-          type: "icon",
-          size: "icon-1X1",
-          title: "芒果TV",
-          url: "https://www.mgtv.com",
-          icon: "/website/1663054934958.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'iIYa7',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '芒果TV',
+          url: 'https://www.mgtv.com',
+          icon: '/website/1663054934958.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 33,
           position: 14,
           bg_color: null,
           status: null,
-          desc: "大家都在看的在线视频网站-热门综艺最新电影电视剧在线观看",
-          icon_type: "logo",
+          desc: '大家都在看的在线视频网站-热门综艺最新电影电视剧在线观看',
+          icon_type: 'logo'
         },
         {
-          id: "rpsEs",
-          type: "icon",
-          size: "icon-1X1",
-          title: "西瓜视频",
-          url: "https://www.ixigua.com/",
-          icon: "/website/1663054971875.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'rpsEs',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '西瓜视频',
+          url: 'https://www.ixigua.com/',
+          icon: '/website/1663054971875.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 47,
           position: 15,
           bg_color: null,
           status: null,
           desc:
-            "国内领先的中视频平台，它源源不断地为不同人群提供优质内容，让人们看到更丰富和有深度的世界，收获轻松的获得感，点亮对生活的好奇心。",
-          icon_type: "logo",
+            '国内领先的中视频平台，它源源不断地为不同人群提供优质内容，让人们看到更丰富和有深度的世界，收获轻松的获得感，点亮对生活的好奇心。',
+          icon_type: 'logo'
         },
         {
-          id: "9A9TF",
-          type: "icon",
-          size: "icon-1X1",
-          title: "QQ音乐",
-          url: "https://y.qq.com/",
-          icon: "/website/1663054984410.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: '9A9TF',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: 'QQ音乐',
+          url: 'https://y.qq.com/',
+          icon: '/website/1663054984410.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 49,
           position: 16,
           bg_color: null,
           status: null,
-          desc: "千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！",
-          icon_type: "logo",
+          desc: '千万正版音乐海量无损曲库新歌热歌天天畅听的高品质音乐平台！',
+          icon_type: 'logo'
         },
         {
-          id: "KjfWe",
-          type: "icon",
-          size: "icon-1X1",
-          title: "CSDN",
-          url: "https://www.csdn.net/",
-          icon: "/website/1663055086278.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'KjfWe',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: 'CSDN',
+          url: 'https://www.csdn.net/',
+          icon: '/website/1663055086278.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 58,
           position: 17,
           bg_color: null,
           status: null,
-          desc: "全球知名中文IT技术交流平台",
-          icon_type: "logo",
+          desc: '全球知名中文IT技术交流平台',
+          icon_type: 'logo'
         },
         {
-          id: "LOQE9",
-          type: "icon",
-          size: "icon-1X1",
-          title: "极客时间",
-          url: "https://time.geekbang.org/",
-          icon: "/website/1663055015540.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'LOQE9',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '极客时间',
+          url: 'https://time.geekbang.org/',
+          icon: '/website/1663055015540.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 79,
           position: 18,
           bg_color: null,
           status: null,
           desc:
-            "致力于为用户提供前沿的IT技术、产品、运营资讯、摄影跑步等知识服务。",
-          icon_type: "logo",
+            '致力于为用户提供前沿的IT技术、产品、运营资讯、摄影跑步等知识服务。',
+          icon_type: 'logo'
         },
         {
-          id: "zMxy4",
-          type: "icon",
-          size: "icon-1X1",
-          title: "菜鸟教程",
-          url: "https://www.runoob.com/",
-          icon: "/website/1663057479817.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'zMxy4',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '菜鸟教程',
+          url: 'https://www.runoob.com/',
+          icon: '/website/1663057479817.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 82,
           position: 19,
           bg_color: null,
           status: null,
           desc:
-            "提供了编程的基础技术教程, 介绍了HTML、CSS、Javascript、Python，Java，Ruby，C，PHP , MySQL等各种编程语言的基础知识",
-          icon_type: "logo",
+            '提供了编程的基础技术教程, 介绍了HTML、CSS、Javascript、Python，Java，Ruby，C，PHP , MySQL等各种编程语言的基础知识',
+          icon_type: 'logo'
         },
         {
-          id: "kYSdd",
-          type: "icon",
-          size: "icon-1X1",
-          title: "掘金",
-          url: "https://juejin.cn/",
-          icon: "/website/1663066509693.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'kYSdd',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: '掘金',
+          url: 'https://juejin.cn/',
+          icon: '/website/1663066509693.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 84,
           position: 20,
           bg_color: null,
           status: null,
-          desc: "掘金是面向全球中文开发者的技术内容分享与交流平台",
-          icon_type: "logo",
+          desc: '掘金是面向全球中文开发者的技术内容分享与交流平台',
+          icon_type: 'logo'
         },
         {
-          id: "lZD5e",
-          type: "icon",
-          size: "icon-1X1",
-          title: "BOSS直聘",
-          url: "https://www.zhipin.com",
-          icon: "/website/1663055034446.jpeg",
-          create_time: "2022-10-10 17:59:39",
-          update_time: "2022-10-10 17:59:39",
+          id: 'lZD5e',
+          type: 'icon',
+          size: 'icon-1X1',
+          title: 'BOSS直聘',
+          url: 'https://www.zhipin.com',
+          icon: '/website/1663055034446.jpeg',
+          create_time: '2022-10-10 17:59:39',
+          update_time: '2022-10-10 17:59:39',
           original_id: 90,
           position: 21,
           bg_color: null,
           status: null,
-          desc: "让求职者与Boss直接开聊、加快面试、即时反馈。",
-          icon_type: "logo",
+          desc: '让求职者与Boss直接开聊、加快面试、即时反馈。',
+          icon_type: 'logo'
         },
         {
-          url: "https://0b29ou.csb.app/",
-          title: "gzz",
-          user: "",
-          password: "",
-          icon: "",
-          icon_text: "鸽子",
-          icon_type: "bg_color",
-          imageUrl: "",
-          bg_color: "#10B981",
-          type: "icon",
-          size: "icon-1X1",
+          url: 'https://0b29ou.csb.app/',
+          title: 'gzz',
+          user: '',
+          password: '',
+          icon: '',
+          icon_text: '鸽子',
+          icon_type: 'bg_color',
+          imageUrl: '',
+          bg_color: '#10B981',
+          type: 'icon',
+          size: 'icon-1X1',
           status: 1,
-          id: "TzWkd",
-        },
-      ],
-    };
+          id: 'TzWkd'
+        }
+      ]
+    }
   },
-  created() {
-    this.appGridList();
-    this.allClick(); //全局事件
+  created () {
+    this.appGridList()
+    this.allClick() // 全局事件
   },
   methods: {
-    allClick() {
+    allClick () {
       document.onclick = (event) => {
-        this.rightMenu = false;
-      };
+        this.rightMenu = false
+      }
     },
-    appGridList() {
-      this.$storage.set("appList", this.defaultArray);
-      this.$storage.get("appList");
+    appGridList () {
+      this.$storage.set('appList', this.defaultArray)
+      this.$storage.get('appList')
     },
-    color16() {
-      //十六进制颜色随机
-      var r = Math.floor(Math.random() * 256);
-      var g = Math.floor(Math.random() * 256);
-      var b = Math.floor(Math.random() * 256);
-      var color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-      return color;
+    color16 () {
+      // 十六进制颜色随机
+      var r = Math.floor(Math.random() * 256)
+      var g = Math.floor(Math.random() * 256)
+      var b = Math.floor(Math.random() * 256)
+      var color = '#' + r.toString(16) + g.toString(16) + b.toString(16)
+      return color
     },
-    menuHandle(event, item) {
-      console.log("menuHandle", item, event);
-      //给left和top分别赋值为鼠标的位置,
-      this.rightMenu = true;
-      this.left = event.pageX;
-      this.top = event.pageY;
-      this.currentAppGridList = [];
-      this.currentAppGridList.push(item);
+    menuHandle (event, item) {
+      console.log('menuHandle', item, event)
+      // 给left和top分别赋值为鼠标的位置,
+      this.rightMenu = true
+      this.left = event.pageX
+      this.top = event.pageY
+      this.currentAppGridList = []
+      this.currentAppGridList.push(item)
     },
-    urlToHandle(event, item) {
-      console.log("urlToHandle", item, event);
-      this.rightMenu = false;
-      if (item.url !== "" && item.url !== null) {
-        window.open(item.url, "_blank");
+    urlToHandle (event, item) {
+      console.log('urlToHandle', item, event)
+      this.rightMenu = false
+      if (item.url !== '' && item.url !== null) {
+        window.open(item.url, '_blank')
       }
       switch (item.title) {
-        case "设置":
-          this.openAddDialog = true;
-          break;
+        case '设置':
+          this.openAddDialog = true
+          break
 
         default:
-          break;
+          break
       }
     },
-    urlToMouseupHandle(event, item) {
-      this.rightMenu = false;
-      console.log(event);
-      console.log("urlToMouseupHandle");
-      console.log(item);
-      //window.location.href = item.url;
-      //window.open(item.url, "_blank");
+    urlToMouseupHandle (event, item) {
+      this.rightMenu = false
+      console.log(event)
+      console.log('urlToMouseupHandle')
+      console.log(item)
+      // window.location.href = item.url;
+      // window.open(item.url, "_blank");
     },
-    checkMove() {
-      console.log("checkMove");
+    checkMove () {
+      console.log('checkMove')
     },
-    menuClick(v, t) {
+    menuClick (v, t) {
       try {
         switch (t) {
-          case "del":
-            console.log("del", v);
-            this.$storage.remove("appList", v);
+          case 'del':
+            console.log('del', v)
+            this.$storage.remove('appList', v)
             for (let index = 0; index < this.defaultArray.length; index++) {
               if (
                 this.defaultArray[index].title === this.currentAppGridList.title
               ) {
-                this.defaultArray.splice(index, 1);
+                this.defaultArray.splice(index, 1)
               }
             }
 
-            break;
-          case "22":
-            break;
+            break
+          case '22':
+            break
 
           default:
-            break;
+            break
         }
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     },
     // 全屏事件
-    handleFullScreen() {
-      let element = document.documentElement;
+    handleFullScreen () {
+      let element = document.documentElement
       if (this.fullscreen) {
         if (document.exitFullscreen) {
-          document.exitFullscreen();
+          document.exitFullscreen()
         } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen();
+          document.webkitCancelFullScreen()
         } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
+          document.mozCancelFullScreen()
         } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
+          document.msExitFullscreen()
         }
       } else {
         if (element.requestFullscreen) {
-          element.requestFullscreen();
+          element.requestFullscreen()
         } else if (element.webkitRequestFullScreen) {
-          element.webkitRequestFullScreen();
+          element.webkitRequestFullScreen()
         } else if (element.mozRequestFullScreen) {
-          element.mozRequestFullScreen();
+          element.mozRequestFullScreen()
         } else if (element.msRequestFullscreen) {
           // IE11
-          element.msRequestFullscreen();
+          element.msRequestFullscreen()
         }
       }
-      this.fullscreen = !this.fullscreen;
-    },
-  },
-};
+      this.fullscreen = !this.fullscreen
+    }
+  }
+}
 </script>
-      
+
 <style scoped>
 * {
     padding: 0;
@@ -824,7 +824,5 @@ li, ul {
     position: fixed;
     bottom:10px;
 }
-
-
 
 </style>

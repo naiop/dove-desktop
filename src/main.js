@@ -1,13 +1,21 @@
-import Vue from "vue";
-import App from "./App.vue";
-import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-import storage from "./utils/storage";
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
 
-Vue.config.productionTip = false;
-Vue.prototype.$storage = storage; //全局storage
-Vue.use(ElementUI);
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import storage from './utils/storage'
 
+Vue.config.productionTip = false
+Vue.prototype.$storage = storage // 全局storage
+Vue.use(ElementUI)
+
+/* eslint-disable no-new */
 new Vue({
-  render: (h) => h(App)
-}).$mount("#app");
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})

@@ -1,20 +1,24 @@
 <template>
-  <div>
-    <AppGrid></AppGrid>
+  <div id="app">
+    <router-view/>
   </div>
 </template>
 
 <script>
-import AppGrid from "./components/AppGrid.vue";
 export default {
-  name: "App",
-  components: {
-    AppGrid: AppGrid,
-  },
-};
+  name: 'App'
+}
 </script>
 
 <style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 /*全局样式*/
 :root {
   --item-size: 55px;
@@ -24,13 +28,5 @@ export default {
   --icon-bg-radius: 13px;
   --font-color: #333;
   --folder-bg: 255, 255, 255, 0.4;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -15,42 +15,41 @@
   </div>
 </template>
 
-
 <script>
 const message = [
-  "vue.draggable",
-  "draggable",
-  "component",
-  "for",
-  "vue.js 2.0",
-  "based",
-  "on",
-  "Sortablejs",
-];
+  'vue.draggable',
+  'draggable',
+  'component',
+  'for',
+  'vue.js 2.0',
+  'based',
+  'on',
+  'Sortablejs'
+]
 export default {
-  name: "Add",
+  name: 'Add',
   props: {
     msg: String,
     open: Boolean,
-    item: String,
+    item: String
   },
-  data() {
+  data () {
     return {
       test: message,
-      dialogVisible: false,
-    };
+      dialogVisible: false
+    }
   },
-  created() {},
+  created () {},
   methods: {
-    handleClose(done) {
-      this.$confirm("确认关闭？")
+    handleClose (done) {
+      this.$confirm('确认关闭？')
         .then((_) => {
-          done();
+          done()
         })
-        .catch((_) => {});
-    },
-  },
-};
+        .catch((_) => {})
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
